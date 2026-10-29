@@ -1,6 +1,7 @@
 import Foundation
 import WebKit
 
+@MainActor
 final class MediaDetector {
     static let shared = MediaDetector()
     private init() {}
