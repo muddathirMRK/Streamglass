@@ -7,10 +7,23 @@ on:
 
 jobs:
   build:
-    runs-on: macos-15
+    runs-on: macos-26
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Select Xcode 26
+        run: |
+          set -euo pipefail
+          XCODE_PATH="$(find /Applications -maxdepth 1 -type d -name 'Xcode_26*.app' | sort -V | tail -n 1)"
+          if [ -z "$XCODE_PATH" ]; then
+            echo "No Xcode 26 installation found"
+            ls -1 /Applications | grep -i Xcode || true
+            exit 1
+          fi
+          sudo xcode-select -s "$XCODE_PATH/Contents/Developer"
+          xcodebuild -version
+          xcodebuild -showsdks | grep -E 'iphoneos|iOS' || true
 
       - name: Build unsigned app
         run: |
