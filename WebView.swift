@@ -9,20 +9,30 @@ struct WebView: UIViewRepresentable {
     let coordinator: BrowserCoordinator
 
     func makeCoordinator() -> BrowserCoordinator { coordinator }
+
     func makeUIView(context: Context) -> WKWebView {
-        let c=WKWebViewConfiguration()
-        c.allowsInlineMediaPlayback=true
-        c.allowsAirPlayForMediaPlayback=true
-        c.allowsPictureInPictureMediaPlayback=true
-        c.mediaTypesRequiringUserActionForPlayback=[]
-        let w=WKWebView(frame:.zero,configuration:c)
-        w.allowsBackForwardNavigationGestures=true
-        coordinator.onURLChange={ u in DispatchQueue.main.async{url=u} }
-        coordinator.onLoadingChange={ x in DispatchQueue.main.async{isLoading=x} }
-        coordinator.onPopupBlocked={ DispatchQueue.main.async{blockedPopups += 1} }
-        coordinator.configure(w)
-        DispatchQueue.main.async{webView=w; w.load(URLRequest(url: URL(string:"https://www.example.com")!))}
-        return w
+        let configuration = WKWebViewConfiguration()
+        configuration.allowsInlineMediaPlayback = true
+        configuration.allowsAirPlayForMediaPlayback = true
+        configuration.allowsPictureInPictureMediaPlayback = true
+        configuration.mediaTypesRequiringUserActionForPlayback = []
+
+        let view = WKWebView(frame: .zero, configuration: configuration)
+        view.allowsBackForwardNavigationGestures = true
+
+        coordinator.onURLChange = { newURL in DispatchQueue.main.async { url = newURL } }
+        coordinator.onLoadingChange = { loading in DispatchQueue.main.async { isLoading = loading } }
+        coordinator.onPopupBlocked = { DispatchQueue.main.async { blockedPopups += 1 } }
+        coordinator.configure(view)
+
+        let start = URL(string: "https://duckduckgo.com/")!
+        DispatchQueue.main.async {
+            webView = view
+            url = start
+            view.load(URLRequest(url: start))
+        }
+        return view
     }
+
     func updateUIView(_ uiView: WKWebView, context: Context) {}
 }
