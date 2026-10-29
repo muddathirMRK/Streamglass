@@ -1,0 +1,39 @@
+// !$*UTF8*$!
+{
+ archiveVersion = 1;
+ classes = {};
+ objectVersion = 77;
+ objects = {
+ B001 = {isa = PBXBuildFile; fileRef = F001; };
+ B002 = {isa = PBXBuildFile; fileRef = F002; };
+ B003 = {isa = PBXBuildFile; fileRef = F003; };
+ B004 = {isa = PBXBuildFile; fileRef = F004; };
+ B005 = {isa = PBXBuildFile; fileRef = F005; };
+ B006 = {isa = PBXBuildFile; fileRef = F006; };
+ B007 = {isa = PBXBuildFile; fileRef = F007; };
+ F001 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamGlassApp.swift; sourceTree = "<group>"; };
+ F002 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectedMedia.swift; sourceTree = "<group>"; };
+ F003 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetector.swift; sourceTree = "<group>"; };
+ F004 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserCoordinator.swift; sourceTree = "<group>"; };
+ F005 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+ F006 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+ F007 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
+ F008 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+ F009 = {isa = PBXFileReference; explicitFileType = wrapper.application; path = StreamGlass.app; sourceTree = BUILT_PRODUCTS_DIR; };
+ FR = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+ G0 = {isa = PBXGroup; children = (G1, GP); sourceTree = "<group>"; };
+ G1 = {isa = PBXGroup; children = (F001, F002, F003, F004, F005, F006, F007, F008); path = .; sourceTree = "<group>"; };
+ GP = {isa = PBXGroup; children = (F009); name = Products; sourceTree = "<group>"; };
+ T0 = {isa = PBXNativeTarget; buildConfigurationList = CLT; buildPhases = (SRC, FR, RES); buildRules = (); dependencies = (); name = StreamGlass; productName = StreamGlass; productReference = F009; productType = "com.apple.product-type.application"; };
+ P0 = {isa = PBXProject; attributes = {BuildIndependentTargetsInParallel = 1; LastUpgradeCheck = 2600; TargetAttributes = {T0 = {CreatedOnToolsVersion = 2600; }; }; }; buildConfigurationList = CLP; compatibilityVersion = "Xcode 16.0"; developmentRegion = en; knownRegions = (en); mainGroup = G0; productRefGroup = GP; projectDirPath = ""; projectRoot = ""; targets = (T0); };
+ RES = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+ SRC = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (B001, B002, B003, B004, B005, B006, B007); runOnlyForDeploymentPostprocessing = 0; };
+ D0 = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 26.0; PRODUCT_BUNDLE_IDENTIFIER = com.muddathirmrk.streamglass; PRODUCT_NAME = StreamGlass; SWIFT_VERSION = 6.0; TARGETED_DEVICE_FAMILY = "1,2"; }; name = Debug; };
+ R0 = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 26.0; PRODUCT_BUNDLE_IDENTIFIER = com.muddathirmrk.streamglass; PRODUCT_NAME = StreamGlass; SWIFT_VERSION = 6.0; TARGETED_DEVICE_FAMILY = "1,2"; }; name = Release; };
+ DP = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; SWIFT_VERSION = 6.0; }; name = Debug; };
+ RP = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; SWIFT_VERSION = 6.0; }; name = Release; };
+ CLT = {isa = XCConfigurationList; buildConfigurations = (D0, R0); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+ CLP = {isa = XCConfigurationList; buildConfigurations = (DP, RP); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+ };
+ rootObject = P0;
+}
